@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'weather-icons';
+  src: url('../fonts/weather-icons.eot?54000849');
+  src: url('../fonts/weather-icons.eot?54000849#iefix') format('embedded-opentype'),
+       url('../fonts/weather-icons.woff2?54000849') format('woff2'),
+       url('../fonts/weather-icons.woff?54000849') format('woff'),
+       url('../fonts/weather-icons.ttf?54000849') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'weather-icons';
+    src: url('../font/weather-icons.svg?54000849#weather-icons') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "weather-icons";
+  font-style: normal;
+  font-weight: normal;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-rain:before { content: '\e815'; } /* '' */
+.icon-cloud-flash-alt:before { content: '\e817'; } /* '' */
+.icon-cloud:before { content: '\e819'; } /* '' */
+.icon-cloud-moon:before { content: '\e81a'; } /* '' */
+.icon-cloud-sun:before { content: '\e81b'; } /* '' */
+.icon-clouds:before { content: '\e81e'; } /* '' */
+.icon-mist:before { content: '\e81f'; } /* '' */
+.icon-snow-heavy:before { content: '\e823'; } /* '' */
+.icon-moon:before { content: '\e824'; } /* '' */
+.icon-sun:before { content: '\e825'; } /* '' */
+.weather-container {
+  width: 500px;
+  height: 200px;
+  color: #fff;
+}
+.weather-widget {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 132, 210, 0.8);
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.forecast-type {
+  display: flex;
+  font-weight: 100;
+  font-size: 12px;
+  justify-content: space-between;
+}
+.forecast-type p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.weather-select {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+.weather-information {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-info-column {
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weather-info-column:nth-child(1) {
+  align-items: flex-start;
+}
+.weather-info-column:nth-child(1)::before {
+  background-color: #fff;
+  content: '';
+  width: 1px;
+  display: block;
+  height: 90%;
+  position: absolute;
+  z-index: 99999;
+  top: 0;
+  right: 10%;
+}
+.weather-icon {
+  font-size: 75px;
+  margin: 0;
+}
+.weather-information p {
+  font-weight: 100;
+}
+.table-forecast {
+  width: 100%;
+  font-size: 15px;
+  font-weight: 200;
+}
+.table-forecast caption {
+  margin: 10px 0;
+  font-weight: 300;
+}
+.table-forecast th {
+  font-weight: 200;
+}
+.table-forecast td {
+  text-align: center;
+  padding: 5px;
+}
+.weather-error-notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex:1 0 auto;
+}
+/* Animation */
+.weather-loader {
+  align-self: flex-end;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.weather-loader i {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 0;
+  bottom: 50%;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: move 2s infinite;
+  animation-timing-function: ease;
+}
+i:nth-child(2) {animation-delay:.1s;}
+i:nth-child(3) {animation-delay:.2s;}
+@keyframes move {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
